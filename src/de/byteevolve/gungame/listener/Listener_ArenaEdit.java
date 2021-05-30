@@ -4,7 +4,12 @@ import de.byteevolve.gungame.GunGame;
 import de.byteevolve.gungame.arena.Arena;
 import de.byteevolve.gungame.arena.ArenaHandler;
 import de.byteevolve.gungame.arena.ArenaTeamState;
+import de.byteevolve.gungame.configuration.config.ConfigEntries;
+import de.byteevolve.gungame.kit.Kit;
 import de.byteevolve.gungame.location.Loc;
+import de.byteevolve.gungame.player.PlayerHandler;
+import de.byteevolve.gungame.sound.Sounds;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -88,6 +93,11 @@ public class Listener_ArenaEdit implements Listener {
                     ArenaTeamState arenaTeamState = ArenaTeamState.valueOf(state);
                     if (arenaTeamState.equals(ArenaTeamState.ALLOWED)) {
                         arena.setArenaTeamState(ArenaTeamState.DISALLOWED);
+                        for (Player players : Bukkit.getOnlinePlayers()) {
+                            if (GunGame.getInstance().getTeamHandler().inTeam(players.getUniqueId().toString()) != null) {
+                                    players.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.TEAMDELETE.getAsString());
+                            }
+                        }
                     } else {
                         arena.setArenaTeamState(ArenaTeamState.ALLOWED);
                     }
