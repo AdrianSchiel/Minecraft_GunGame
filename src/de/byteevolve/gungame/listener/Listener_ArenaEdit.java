@@ -33,11 +33,11 @@ public class Listener_ArenaEdit implements Listener {
                 arena = arenaHandler.getArenaPlayerCreate().get(player);
             }
             if (arena != null) {
-                event.setCancelled(true);
                 ItemStack item = event.getCurrentItem();
                 ItemMeta itemMeta = item.getItemMeta();
                 String displayName = itemMeta.getDisplayName();
                 if (displayName.equalsIgnoreCase("§7Spawn setzen")) {
+                    event.setCancelled(true);
                     Loc loc = new Loc(arena.getName() + "spawn");
                     loc.setFromLocation(player.getLocation());
                     loc.update();
@@ -55,6 +55,7 @@ public class Listener_ArenaEdit implements Listener {
                         player.closeInventory();
                     }
                 } else if (displayName.equalsIgnoreCase("§aObere-SpawnProt setzen")) {
+                    event.setCancelled(true);
                     Loc loc = new Loc(arena.getName() + "topprot");
                     loc.setFromLocation(player.getLocation());
                     loc.update();
@@ -72,6 +73,7 @@ public class Listener_ArenaEdit implements Listener {
                         player.closeInventory();
                     }
                 } else if (displayName.equalsIgnoreCase("§aUntere-SpawnProt setzen")) {
+                    event.setCancelled(true);
                     Loc loc = new Loc(arena.getName() + "bottomprot");
                     loc.setFromLocation(player.getLocation());
                     loc.update();
@@ -89,6 +91,7 @@ public class Listener_ArenaEdit implements Listener {
                         player.closeInventory();
                     }
                 } else if (displayName.equalsIgnoreCase("§aTeamsState §7setzen")) {
+                    event.setCancelled(true);
                     String state = itemMeta.getLore().get(0).replaceAll("§7State: §a", "");
                     ArenaTeamState arenaTeamState = ArenaTeamState.valueOf(state);
                     if (arenaTeamState.equals(ArenaTeamState.ALLOWED)) {
@@ -113,6 +116,7 @@ public class Listener_ArenaEdit implements Listener {
                         player.closeInventory();
                     }
                 } else if (displayName.equalsIgnoreCase("§aBeenden")) {
+                    event.setCancelled(true);
                     if (arena.getFinished() == 0) {
                         if (arena.getSpawn() != null && arena.getMinSpawn() != null && arena.getMaxSpawn() != null) {
                             arena.setFinished(1);
