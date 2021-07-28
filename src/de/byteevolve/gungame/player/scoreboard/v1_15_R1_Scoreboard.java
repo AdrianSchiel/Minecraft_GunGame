@@ -2,6 +2,7 @@ package de.byteevolve.gungame.player.scoreboard;
 
 import de.byteevolve.gungame.GunGame;
 import de.byteevolve.gungame.configuration.config.ConfigEntries;
+import de.byteevolve.gungame.configuration.language.Message;
 import de.byteevolve.gungame.player.PlayerStats;
 import de.byteevolve.gungame.player.PlayerStatsType;
 import net.minecraft.server.v1_15_R1.*;
@@ -13,10 +14,10 @@ public class v1_15_R1_Scoreboard implements GGScoreboard{
     @Override
     public void sendScoreboard(Player player) {
         Scoreboard sb = new Scoreboard();
-        ScoreboardObjective obj = sb.registerObjective(ConfigEntries.SCOREBOARDNAME.getAsString(), IScoreboardCriteria.DUMMY, new ChatMessage(ConfigEntries.SCOREBOARDNAME.getAsString()), IScoreboardCriteria.EnumScoreboardHealthDisplay.INTEGER);
+        ScoreboardObjective obj = sb.registerObjective(Message.SCOREBOARDNAME.getAsString(), IScoreboardCriteria.DUMMY, new ChatMessage(Message.SCOREBOARDNAME.getAsString()), IScoreboardCriteria.EnumScoreboardHealthDisplay.INTEGER);
         PacketPlayOutScoreboardObjective createpacket = new PacketPlayOutScoreboardObjective(obj, 0);
         PacketPlayOutScoreboardDisplayObjective display = new PacketPlayOutScoreboardDisplayObjective(1, obj);
-        obj.setDisplayName(new ChatMessage(ConfigEntries.SCOREBOARDNAME.getAsString()));
+        obj.setDisplayName(new ChatMessage(Message.SCOREBOARDNAME.getAsString()));
 
         PlayerStats playerStats = new PlayerStats(player.getUniqueId().toString());
 
@@ -31,7 +32,7 @@ public class v1_15_R1_Scoreboard implements GGScoreboard{
         sendPacket(display, player);
 
         int i = 16;
-        for(String line : ConfigEntries.SCOREBOARD.getAsString().split("\n")){
+        for(String line : Message.SCOREBOARD.getAsString().split("\n")){
             line = line.replaceAll("%MAP%", map);
             line = line.replaceAll("%RECORD%", String.valueOf(playerStats.get(PlayerStatsType.HIGHSCORE)));
             line = line.replaceAll("%KILLS%", String.valueOf(playerStats.get(PlayerStatsType.KILLS)));
@@ -39,7 +40,7 @@ public class v1_15_R1_Scoreboard implements GGScoreboard{
             line = line.replaceAll("%RANK%", String.valueOf(playerStats.getRank()));
             line = line.replaceAll("%KD%", String.valueOf(playerStats.getKD()));
 
-            PacketPlayOutScoreboardScore packet= new PacketPlayOutScoreboardScore(ScoreboardServer.Action.CHANGE,ConfigEntries.SCOREBOARDNAME.getAsString(),line,i);
+            PacketPlayOutScoreboardScore packet= new PacketPlayOutScoreboardScore(ScoreboardServer.Action.CHANGE,Message.SCOREBOARDNAME.getAsString(),line,i);
             sendPacket(packet, player);
 
             i--;
