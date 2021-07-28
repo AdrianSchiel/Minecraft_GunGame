@@ -2,6 +2,7 @@ package de.byteevolve.gungame.listener;
 
 import de.byteevolve.gungame.GunGame;
 import de.byteevolve.gungame.configuration.config.ConfigEntries;
+import de.byteevolve.gungame.configuration.language.Message;
 import de.byteevolve.gungame.kit.Kit;
 import de.byteevolve.gungame.player.PlayerHandler;
 import org.bukkit.Bukkit;
@@ -53,7 +54,7 @@ public class Listener_Join implements Listener {
         if(GunGame.getInstance().getGameHandler().getCurrent() != null){
             player.teleport(GunGame.getInstance().getLocationHandler().getLocByName(GunGame.getInstance().getGameHandler().getCurrent().getSpawn()).getAsLocation());
         }else{
-            player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.NOARENAEXISTS.getAsString());
+            player.sendMessage(GunGame.getInstance().getPrefix() + Message.NOARENAEXISTS.getAsString());
         }
 
         player.setLevel(0);

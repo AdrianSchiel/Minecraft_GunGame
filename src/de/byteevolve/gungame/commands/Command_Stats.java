@@ -2,6 +2,7 @@ package de.byteevolve.gungame.commands;
 
 import de.byteevolve.gungame.GunGame;
 import de.byteevolve.gungame.configuration.config.ConfigEntries;
+import de.byteevolve.gungame.configuration.language.Message;
 import de.byteevolve.gungame.player.PlayerStats;
 import de.byteevolve.gungame.player.PlayerStatsType;
 import org.bukkit.Bukkit;
@@ -23,7 +24,7 @@ public class Command_Stats implements CommandExecutor {
                 if(Bukkit.getPlayer(args[0]) != null) {
                     Player target = Bukkit.getPlayer(args[0]);
                     PlayerStats playerStats = new PlayerStats(target.getUniqueId().toString());
-                    for(String line : ConfigEntries.STATS.getAsString().split("\n")){
+                    for(String line : Message.STATS.getAsString().split("\n")){
                         line = line.replaceAll("%PLAYER%", target.getDisplayName());
                         line = line.replaceAll("%KILLS%", playerStats.get(PlayerStatsType.KILLS).toString());
                         line = line.replaceAll("%DEAHTS%", playerStats.get(PlayerStatsType.DEATHS).toString());
@@ -38,7 +39,7 @@ public class Command_Stats implements CommandExecutor {
             }else{
                 PlayerStats playerStats = new PlayerStats(player.getUniqueId().toString());
 
-                for(String line : ConfigEntries.STATS.getAsString().split("\n")){
+                for(String line : Message.STATS.getAsString().split("\n")){
                     line = line.replaceAll("%PLAYER%", player.getDisplayName());
                     line = line.replaceAll("%KILLS%", playerStats.get(PlayerStatsType.KILLS).toString());
                     line = line.replaceAll("%DEAHTS%", playerStats.get(PlayerStatsType.DEATHS).toString());

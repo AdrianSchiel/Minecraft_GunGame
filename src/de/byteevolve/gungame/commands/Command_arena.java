@@ -3,6 +3,7 @@ package de.byteevolve.gungame.commands;
 import de.byteevolve.gungame.GunGame;
 import de.byteevolve.gungame.arena.Arena;
 import de.byteevolve.gungame.configuration.config.ConfigEntries;
+import de.byteevolve.gungame.configuration.language.Message;
 import de.byteevolve.gungame.player.PlayerHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -32,19 +33,19 @@ public class Command_arena implements CommandExecutor {
                     dpn = dpn + args[i] + " ";
                 }
                 if(GunGame.getInstance().getArenaHandler().getArenaPlayerCreate().containsKey(player)){
-                    player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.PLAYERCREATESARENA.getAsString());
+                    player.sendMessage(GunGame.getInstance().getPrefix() + Message.PLAYERCREATESARENA.getAsString());
                     return true;
                 }
 
                 if(GunGame.getInstance().getArenaHandler().existArenaByName(args[1]) || GunGame.getInstance().getArenaHandler().existArenaPlayerCreateByName(args[1])){
-                    player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.ARENAEXISTS.getAsString().replaceAll("%ARENANAME%", args[1]));
+                    player.sendMessage(GunGame.getInstance().getPrefix() + Message.ARENAEXISTS.getAsString().replaceAll("%ARENANAME%", args[1]));
                     return true;
                 }
 
                 Arena arena = new Arena(args[1]);
                 arena.setDisplayname(dpn);
                 GunGame.getInstance().getArenaHandler().getArenaPlayerCreate().put(player, arena);
-                player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.PLAYERCREATEARENA.getAsString().replaceAll("%ARENANAME%", args[1]));
+                player.sendMessage(GunGame.getInstance().getPrefix() + Message.PLAYERCREATEARENA.getAsString().replaceAll("%ARENANAME%", args[1]));
                 return true;
             }
         }
@@ -56,7 +57,7 @@ public class Command_arena implements CommandExecutor {
                         GunGame.getInstance().getArenaHandler().getArenaEditList().put(player, GunGame.getInstance().getArenaHandler().getArenaByName(args[1]));
                         new PlayerHandler(player).openArenaEditMainInv(GunGame.getInstance().getArenaHandler().getArenaByName(args[1]));
                     } else
-                        player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.ARENANOTEXISTS.getAsString().replaceAll("%ARENANAME%", args[1]));
+                        player.sendMessage(GunGame.getInstance().getPrefix() + Message.ARENANOTEXISTS.getAsString().replaceAll("%ARENANAME%", args[1]));
                     break;
                 case "delete":
                     break;
@@ -66,16 +67,16 @@ public class Command_arena implements CommandExecutor {
             if(args[0].equalsIgnoreCase("edit")){
             if(GunGame.getInstance().getArenaHandler().getArenaPlayerCreate().containsKey(player))
                 new PlayerHandler(player).openArenaEditMainInv(GunGame.getInstance().getArenaHandler().getArenaPlayerCreate().get(player));
-            else player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.PLAYERNOTCREATESARENA.getAsString());
+            else player.sendMessage(GunGame.getInstance().getPrefix() + Message.PLAYERNOTCREATESARENA.getAsString());
         }else if(args[0].equalsIgnoreCase("list")){
                 if(GunGame.getInstance().getArenaHandler().getArenas().isEmpty())
-                    player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.NOARENAEXISTS.getAsString());
+                    player.sendMessage(GunGame.getInstance().getPrefix() + Message.NOARENAEXISTS.getAsString());
 
             for(Arena arena : GunGame.getInstance().getArenaHandler().getArenas()){
-                player.sendMessage(ConfigEntries.PREFIX.getAsString() + "§a" + arena.getDisplayname().replaceAll("&", "§") + "§7»" + arena.getArenaTeamState().getPrefix());
+                player.sendMessage(Message.PREFIX.getAsString() + "§a" + arena.getDisplayname().replaceAll("&", "§") + "§7»" + arena.getArenaTeamState().getPrefix());
             }
-            }else player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.ARENAHELP.getAsString());
-    }else player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.ARENAHELP.getAsString());
+            }else player.sendMessage(GunGame.getInstance().getPrefix() + Message.ARENAHELP.getAsString());
+    }else player.sendMessage(GunGame.getInstance().getPrefix() + Message.ARENAHELP.getAsString());
 
 
 

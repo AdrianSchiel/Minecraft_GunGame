@@ -2,6 +2,7 @@ package de.byteevolve.gungame.commands;
 
 import de.byteevolve.gungame.GunGame;
 import de.byteevolve.gungame.configuration.config.ConfigEntries;
+import de.byteevolve.gungame.configuration.language.Message;
 import de.byteevolve.gungame.kit.Kit;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
@@ -29,7 +30,7 @@ public class Command_build implements CommandExecutor {
             if(GunGame.getInstance().getGameHandler().getCurrent() != null){
                 player.teleport(GunGame.getInstance().getLocationHandler().getLocByName(GunGame.getInstance().getGameHandler().getCurrent().getSpawn()).getAsLocation());
             }else{
-                player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.NOARENAEXISTS.getAsString());
+                player.sendMessage(GunGame.getInstance().getPrefix() + Message.NOARENAEXISTS.getAsString());
             }
 
             if(GunGame.getInstance().getGameHandler().getPlayerkits().containsKey(player)){
@@ -39,13 +40,13 @@ public class Command_build implements CommandExecutor {
                 GunGame.getInstance().getGameHandler().getPlayerkits().get(player).getKitInventory().load(player);
             }
             player.setGameMode(GameMode.SURVIVAL);
-            player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.BUILDOFF.getAsString());
+            player.sendMessage(GunGame.getInstance().getPrefix() + Message.BUILDOFF.getAsString());
         }else{
             GunGame.getInstance().getBuild().add(player.getUniqueId());
             player.getInventory().clear();
             player.getInventory().setArmorContents(null);
             player.setGameMode(GameMode.CREATIVE);
-            player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.BUILDON.getAsString());
+            player.sendMessage(GunGame.getInstance().getPrefix() + Message.BUILDON.getAsString());
         }
         return true;
     }

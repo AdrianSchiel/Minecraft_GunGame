@@ -4,6 +4,7 @@ import de.byteevolve.gungame.GunGame;
 import de.byteevolve.gungame.arena.Arena;
 import de.byteevolve.gungame.arena.ArenaTeamState;
 import de.byteevolve.gungame.configuration.config.ConfigEntries;
+import de.byteevolve.gungame.configuration.language.Message;
 import de.byteevolve.gungame.kit.Kit;
 import de.byteevolve.gungame.player.PlayerHandler;
 import de.byteevolve.gungame.sound.Sounds;
@@ -59,7 +60,7 @@ public class GameHandler {
                 public void run() {
 
                     if (GunGame.getInstance().getArenaHandler().getArenas().size() > 1) {
-                        String actionbar = ConfigEntries.GAMEACTIONBARMAPCHANGE.getAsString();
+                        String actionbar = Message.GAMEACTIONBARMAPCHANGE.getAsString();
                         actionbar = actionbar.replaceAll("%SECONDS%", String.valueOf(i));
                         actionbar = actionbar.replaceAll("%TEAMSTATE%", getCurrent().getArenaTeamState().getPrefix());
                         for (Player player : Bukkit.getOnlinePlayers()) {
@@ -73,13 +74,13 @@ public class GameHandler {
                             case 30:
                             case 15:
                             case 10:
-                                Bukkit.broadcastMessage(GunGame.getInstance().getPrefix() + ConfigEntries.MAPCHANGETIMER.getAsString().replaceAll("%SECONDS%", String.valueOf(i)));
+                                Bukkit.broadcastMessage(GunGame.getInstance().getPrefix() + Message.MAPCHANGETIMER.getAsString().replaceAll("%SECONDS%", String.valueOf(i)));
                                 break;
                             case 5:
                             case 4:
                             case 3:
                             case 2:
-                                Bukkit.broadcastMessage(GunGame.getInstance().getPrefix() + ConfigEntries.MAPCHANGETIMER.getAsString().replaceAll("%SECONDS%", String.valueOf(i)));
+                                Bukkit.broadcastMessage(GunGame.getInstance().getPrefix() + Message.MAPCHANGETIMER.getAsString().replaceAll("%SECONDS%", String.valueOf(i)));
                                 for (Player player : Bukkit.getOnlinePlayers()) {
                                     Sounds.NOTE_BASS.play(player, 10, 10);
                                 }
@@ -97,11 +98,11 @@ public class GameHandler {
                                     for (Player player : Bukkit.getOnlinePlayers()) {
                                         if (GunGame.getInstance().getTeamHandler().inTeam(player.getUniqueId().toString()) != null) {
                                             if (getCurrent().getArenaTeamState().equals(ArenaTeamState.DISALLOWED)) {
-                                                player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.TEAMDELETE.getAsString());
+                                                player.sendMessage(GunGame.getInstance().getPrefix() + Message.TEAMDELETE.getAsString());
                                             }
                                         }
                                         Sounds.LEVEL_UP.play(player, 10, 10);
-                                        player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.MAPCHANGE.getAsString().replaceAll("%MAP%", getCurrent().getDisplayname().replaceAll("&", "§")));
+                                        player.sendMessage(GunGame.getInstance().getPrefix() + Message.MAPCHANGE.getAsString().replaceAll("%MAP%", getCurrent().getDisplayname().replaceAll("&", "§")));
                                         new PlayerHandler(player).sendScoreBoard();
                                         GunGame.getInstance().getGameHandler().getPlayerkits().put(player, Kit.LEVEL_0);
                                         GunGame.getInstance().getGameHandler().getPlayerkits().get(player).getKitInventory().load(player);
@@ -115,7 +116,7 @@ public class GameHandler {
 
                         }
                     }else{
-                        String actionbar = ConfigEntries.GAMEACTIONBAR.getAsString();
+                        String actionbar = Message.GAMEACTIONBAR.getAsString();
                         actionbar = actionbar.replaceAll("%TEAMSTATE%", getCurrent().getArenaTeamState().getPrefix());
                         for (Player player : Bukkit.getOnlinePlayers()) {
                             new PlayerHandler(player).sendActionBar(actionbar);

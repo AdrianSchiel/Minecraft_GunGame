@@ -8,6 +8,8 @@ import de.byteevolve.gungame.commands.Command_arena;
 import de.byteevolve.gungame.commands.Command_build;
 import de.byteevolve.gungame.configuration.ConfigHandler;
 import de.byteevolve.gungame.configuration.config.ConfigEntries;
+import de.byteevolve.gungame.configuration.language.LanguageHandler;
+import de.byteevolve.gungame.configuration.language.Message;
 import de.byteevolve.gungame.database.MySQL;
 import de.byteevolve.gungame.game.GameHandler;
 import de.byteevolve.gungame.itembuilder.unbreakable.*;
@@ -40,6 +42,7 @@ public class GunGame extends JavaPlugin {
     private String prefix,noPerm, mustAPlayer,playerNotOnline;
     private List<UUID> build;
     private ConfigHandler configHandler;
+    private LanguageHandler languageHandler;
     private GGRespawn respawn;
     private GGActionbar actionbar;
     private GGScoreboard scoreboard;
@@ -50,12 +53,12 @@ public class GunGame extends JavaPlugin {
     public void onEnable() {
         instance = this;
         new Metrics(this, 11293);
-
         this.configHandler = new ConfigHandler();
-        this.prefix = ConfigEntries.PREFIX.getAsString();
-        this.noPerm = this.prefix + ConfigEntries.NOPERM.getAsString();
-        this.mustAPlayer = this.prefix + ConfigEntries.MUSTAPLAYER.getAsString();
-        this.playerNotOnline = this.prefix + ConfigEntries.PLAYERNOTONLINE.getAsString();
+        this.languageHandler = new LanguageHandler();
+        this.prefix = Message.PREFIX.getAsString();
+        this.noPerm = this.prefix + Message.NOPERM.getAsString();
+        this.mustAPlayer = this.prefix + Message.MUSTAPLAYER.getAsString();
+        this.playerNotOnline = this.prefix + Message.PLAYERNOTONLINE.getAsString();
         this.mySQL = new MySQL(ConfigEntries.MYSQL_HOST.getAsString(), ConfigEntries.MYSQL_USERNAME.getAsString(),
                 ConfigEntries.MYSQL_PASSWORD.getAsString(), ConfigEntries.MYSQL_DATABASE.getAsString(),
                 ConfigEntries.MYSQL_PORT.getAsInt());
@@ -102,7 +105,7 @@ public class GunGame extends JavaPlugin {
                 if (GunGame.getInstance().getGameHandler().getCurrent() != null) {
                     player.teleport(GunGame.getInstance().getLocationHandler().getLocByName(GunGame.getInstance().getGameHandler().getCurrent().getSpawn()).getAsLocation());
                 } else {
-                    player.sendMessage(getPrefix() + ConfigEntries.NOARENAEXISTS.getAsString());
+                    player.sendMessage(getPrefix() + Message.NOARENAEXISTS.getAsString());
                 }
                 GunGame.getInstance().getGameHandler().getPlayerkits().put(player, Kit.LEVEL_0);
                 GunGame.getInstance().getGameHandler().getPlayerkits().get(player).getKitInventory().load(player);

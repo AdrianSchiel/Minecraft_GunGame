@@ -3,6 +3,7 @@ package de.byteevolve.gungame.listener;
 import de.byteevolve.gungame.GunGame;
 import de.byteevolve.gungame.arena.Arena;
 import de.byteevolve.gungame.configuration.config.ConfigEntries;
+import de.byteevolve.gungame.configuration.language.Message;
 import de.byteevolve.gungame.kit.Kit;
 import de.byteevolve.gungame.player.PlayerHandler;
 import de.byteevolve.gungame.player.PlayerStats;
@@ -106,11 +107,11 @@ public class Listener_Game implements Listener {
             killer.setLevel(newKitKiller.getId());
             killer.setMaxHealth(20);
             killer.setHealth(20);
-            killer.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.KILLERKILLS.getAsString().replaceAll("%PLAYER%", player.getDisplayName()));
+            killer.sendMessage(GunGame.getInstance().getPrefix() + Message.KILLERKILLS.getAsString().replaceAll("%PLAYER%", player.getDisplayName()));
             Sounds.LEVEL_UP.play(killer, 10, 10);
-            player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.PLAYERKILLED.getAsString().replaceAll("%KILLER%", killer.getDisplayName()));
+            player.sendMessage(GunGame.getInstance().getPrefix() + Message.PLAYERKILLED.getAsString().replaceAll("%KILLER%", killer.getDisplayName()));
         }else{
-            player.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.PLAYERDEAD.getAsString());
+            player.sendMessage(GunGame.getInstance().getPrefix() + Message.PLAYERDEAD.getAsString());
         }
         player.setVelocity(new Vector(0, 0, 0));
         new PlayerHandler(player).respawnPlayer();

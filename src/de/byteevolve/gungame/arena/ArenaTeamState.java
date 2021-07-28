@@ -2,6 +2,7 @@ package de.byteevolve.gungame.arena;
 
 
 import de.byteevolve.gungame.configuration.config.ConfigEntries;
+import de.byteevolve.gungame.configuration.language.Message;
 
 /**
  * Available ArenaTeamStates
@@ -13,12 +14,12 @@ public enum ArenaTeamState {
     /**
      * ALLOWED
      */
-    ALLOWED(ConfigEntries.TEAMSTATEALLOWED.getAsString()),
+    ALLOWED(Message.TEAMSTATEALLOWED.getAsString()),
 
     /**
      * DISALLOWED
      */
-    DISALLOWED(ConfigEntries.TEAMSTATEDISALLOWED.getAsString());
+    DISALLOWED(Message.TEAMSTATEDISALLOWED.getAsString());
 
     private String prefix;
 

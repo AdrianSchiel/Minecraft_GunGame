@@ -5,6 +5,7 @@ import de.byteevolve.gungame.arena.Arena;
 import de.byteevolve.gungame.arena.ArenaHandler;
 import de.byteevolve.gungame.arena.ArenaTeamState;
 import de.byteevolve.gungame.configuration.config.ConfigEntries;
+import de.byteevolve.gungame.configuration.language.Message;
 import de.byteevolve.gungame.kit.Kit;
 import de.byteevolve.gungame.location.Loc;
 import de.byteevolve.gungame.player.PlayerHandler;
@@ -98,7 +99,7 @@ public class Listener_ArenaEdit implements Listener {
                         arena.setArenaTeamState(ArenaTeamState.DISALLOWED);
                         for (Player players : Bukkit.getOnlinePlayers()) {
                             if (GunGame.getInstance().getTeamHandler().inTeam(players.getUniqueId().toString()) != null) {
-                                    players.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.TEAMDELETE.getAsString());
+                                    players.sendMessage(GunGame.getInstance().getPrefix() + Message.TEAMDELETE.getAsString());
                             }
                         }
                     } else {

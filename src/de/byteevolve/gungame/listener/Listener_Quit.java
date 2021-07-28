@@ -2,6 +2,7 @@ package de.byteevolve.gungame.listener;
 
 import de.byteevolve.gungame.GunGame;
 import de.byteevolve.gungame.configuration.config.ConfigEntries;
+import de.byteevolve.gungame.configuration.language.Message;
 import de.byteevolve.gungame.team.Team;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -24,7 +25,7 @@ public class Listener_Quit implements Listener {
                     String newOwner = team.getMembers().get(0);
                     team.setOwner(newOwner);
                     team.getMembers().remove(newOwner);
-                    Bukkit.getPlayer(UUID.fromString(newOwner)).sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.TEAMNEWOWNER.getAsString());
+                    Bukkit.getPlayer(UUID.fromString(newOwner)).sendMessage(GunGame.getInstance().getPrefix() + Message.TEAMNEWOWNER.getAsString());
                     GunGame.getInstance().getTeamHandler().getTeams().remove(player.getUniqueId().toString());
                     GunGame.getInstance().getTeamHandler().getTeams().put(newOwner, team);
                 }else{
@@ -37,10 +38,10 @@ public class Listener_Quit implements Listener {
 
             for(String uuid : team.getMembers()){
                 Player member = Bukkit.getPlayer(UUID.fromString(uuid));
-                member.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.TEAMLEAVEMEMBER.getAsString().replaceAll("%PLAYER%", player.getDisplayName()));
+                member.sendMessage(GunGame.getInstance().getPrefix() + Message.TEAMLEAVEMEMBER.getAsString().replaceAll("%PLAYER%", player.getDisplayName()));
             }
             Player owner = Bukkit.getPlayer(UUID.fromString(team.getOwner()));
-            owner.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.TEAMLEAVEMEMBER.getAsString().replaceAll("%PLAYER%", player.getDisplayName()));
+            owner.sendMessage(GunGame.getInstance().getPrefix() + Message.TEAMLEAVEMEMBER.getAsString().replaceAll("%PLAYER%", player.getDisplayName()));
         }
     }
 }
