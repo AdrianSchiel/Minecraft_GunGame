@@ -17,6 +17,11 @@ public class Command_Team implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         if(sender instanceof Player){
+            if (GunGame.getInstance().getGameHandler().getCurrent() == null) {
+                sender.sendMessage(GunGame.getInstance().getPrefix() + Message.NOARENAEXISTS.getAsString());
+                return true;
+            }
+
             if(GunGame.getInstance().getGameHandler().getCurrent().getArenaTeamState().equals(ArenaTeamState.DISALLOWED)){
                 sender.sendMessage(GunGame.getInstance().getPrefix() + ConfigEntries.NOTEAMALLOWED.getAsString());
                 return true;
