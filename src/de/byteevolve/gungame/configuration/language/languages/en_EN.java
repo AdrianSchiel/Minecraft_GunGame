@@ -9,26 +9,26 @@ public enum en_EN implements Language {
     PLAYERNOTONLINE( "playernotonline", "&7The specified player could not be found.", "&7The specified player could not be found."),
 
     //ARENA COMMAND
-    PLAYERCREATESARENA( "playercreatesarena", "&cYou already create an arena", "&cYou already create an arena"),
+    PLAYERCREATESARENA( "playercreatesarena", "&cYou are already creating an Arena", "&cYou are already creating an Arena"),
     ARENAEXISTS( "arenaexists", "&7The arena:&a %ARENANAME% &7exists already.", "&7The arena:&a %ARENANAME% &7exists already."),
-    PLAYERCREATEARENA( "playercreatearena", "&7You now create the arena:&a %ARENANAME%&7. (&2/arena edit&7)", "&7You now create the arena:&a %ARENANAME%&7. (&2/arena edit&7)"),
+    PLAYERCREATEARENA( "playercreatearena", "&7You are now creating the arena:&a %ARENANAME%&7. (&2/arena edit&7)", "&7You are now creating the arena:&a %ARENANAME%&7. (&2/arena edit&7)"),
     ARENANOTEXISTS( "arenanotexists",  "&7The arena:&a %ARENANAME% &7does not exist.", "&7The arena:&a %ARENANAME% &7does not exist."),
-    PLAYERNOTCREATESARENA( "playernotcreatesarena", "&7You are not creating an arena right now. (&2/arena create name&7)", "&7You are not creating an arena right now. (&2/arena create name&7)"),
+    PLAYERNOTCREATESARENA( "playernotcreatesarena", "&7You are not creating an arena currently. (&2/arena create name&7)", "&7You are not creating an arena currently. (&2/arena create name&7)"),
     ARENAHELP( "arenahelp", "&7Use &c/arena &7<&ccreate&7,&cedit&7> &7<&cName&7> &7<&cDisplayname&7>", "&7Use &c/arena &7<&ccreate&7,&cedit&7> &7<&cName&7> &7<&cDisplayname&7>"),
     NOARENAEXISTS( "noarenaexists","&cNo arena has been created yet.", "&cNo arena has been created yet."),
 
     //BUILD COMMAND
     BUILDON( "buildon", "&7You are now in &aBuild mode&7.","&7You are now in &aBuild mode&7."),
-    BUILDOFF( "buildoff", "&7You are now &cnot &7in &aBuild mode&7.","&7You are now &cnot &7in &aBuild mode&7."),
+    BUILDOFF( "buildoff", "&7You are &cno &7longer in &aBuild mode&7.","&7You are &cno &7longer in &aBuild mode&7."),
 
     //STATS COMMAND
     STATS( "stats", "&m&l&7-------- &aStats&7 -&a %PLAYER% &m&l&7-------- \n &7Kills:&a %KILLS% \n &7Deaths:&a %DEAHTS% \n &7Highscore:&a %HIGHSCORE% \n &7Points:&a %POINTS% \n &7KD:&a %KD% \n &7Rank:&a #%RANK% \n &7&m&l-------------------------------------",
             "&m&l&7-------- &aStats&7 -&a %PLAYER% &m&l&7-------- \n &7Kills:&a %KILLS% \n &7Deaths:&a %DEAHTS% \n &7Highscore:&a %HIGHSCORE% \n &7Points:&a %POINTS% \n &7KD:&a %KD% \n &7Rank:&a #%RANK% \n &7&m&l-------------------------------------"),
 
     //TEMAS COMMAND
-    NOTEAMALLOWED( "noteamallowed", "&7For this &aMap &7you can't &7use this command.", "&7For this &aMap &7you can't &7use this command."),
+    NOTEAMALLOWED( "noteamallowed", "&7You can't use this command on this &aMap &7.", "&7You can't use this command on this &aMap &7."),
     PLAYERINTEAM( "playerinteam", "&cThe player is already in a team", "&cThe player is already in a team"),
-    PLAYERTEAMINVITE( "playerteaminvite", "&7You have&a %TARGET% &7invited to a team.", "&7You have&a %TARGET% &7invited to a team."),
+    PLAYERTEAMINVITE( "playerteaminvite", "&7You invited &a %TARGET% &7to a team.", "&7You invited&a %TARGET% &7to a team."),
     PLAYERCANTINVITETEAMMEMBER("playercantinviteteammember", "&cOnly the team owner can invite others.", "&cOnly the team owner can invite others."),
     TEAMCREATE( "teamcreate" , "&7You have created a &aTeam &7.", "&7You have created a &aTeam &7."),
     TEAMJOIN( "teamjoin", "&a%PLAYER% &7has joined the team.", "&a%PLAYER% &7has joined the team."),
@@ -44,7 +44,7 @@ public enum en_EN implements Language {
     TEAMINFOMEMBER( "teaminfomember", "&7Member&7:&a %MEMBER%", "&7Member&7:&a %MEMBER%"),
     PLAYERNOTEAM( "playernoteam", "&cYou are not in any team!", "&cYou are not in any team!"),
     TEAMNEWOWNER( "teamnewowner", "&7You are now the &cOwner &7of the &aTeam&7.", "&7You are now the &cOwner &7of the &aTeam&7."),
-    TEAMDELETE( "teamdelete", "&7You have &cdissolved&7 your team.", "&7You have &cdissolved&7 your team."),
+    TEAMDELETE( "teamdelete", "&7You &cdissolved&7 your team.", "&7You &cdissolved&7 your team."),
     TEAMLEAVEMEMBER( "teamleavemember", "&a%PLAYER% &7has &cleft&7 the team.", "&a%PLAYER% &7has &cleft&7 the team."),
     TEAMLEAVEPLAYER( "teamleaveplayer", "&7You have &cleft &7the team from &a%OWNER%&7.", "&7You have &cleft &7the team from &a%OWNER%&7."),
     TEAMKICKPLAYER( "teamkickplayer", "&7You have been &removed&7from&a %OWNER% team.", "&7You have been &removed&7from&a %OWNER% team."),
@@ -78,7 +78,7 @@ public enum en_EN implements Language {
     //DEATH
     PLAYERDEAD( "playerdead", "&7You died.", "&7You died."),
     PLAYERKILLED( "playerkilled", "&7You were killed by &c%KILLER%&7.", "&7You were killed by &c%KILLER%&7."),
-    KILLERKILLS( "killerkills", "&7You have&a %PLAYER% &7killed.", "&7You have&a %PLAYER% &7killed."),
+    KILLERKILLS( "killerkills", "&7You killed&a %PLAYER% &7.", "&7You killed&a %PLAYER% &7."),
 
     //MAPCHANGE
     MAPCHANGE( "mapchange", "&7The map was set to&a %MAP% &7.", "&7The map was set to&a %MAP% &7."),
@@ -86,7 +86,6 @@ public enum en_EN implements Language {
 
     GAMEACTIONBARMAPCHANGE( "gameactionbarmapchange", "&7Mapchange in&8: &a%SECONDS%-seconds &8&l︳ &7%TEAMSTATE%.", "&7Mapchange in&8: &a%SECONDS%-seconds &8&l︳ &7%TEAMSTATE%."),
     GAMEACTIONBAR( "gameactionbar", "&7%TEAMSTATE%", "&7%TEAMSTATE%"),
-
     ;
 
     String path, message, defaultMessage, description;
