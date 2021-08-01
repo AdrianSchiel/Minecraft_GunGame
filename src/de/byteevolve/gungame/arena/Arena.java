@@ -40,13 +40,13 @@ public class Arena {
         if(getMaxSpawn() == null) setMaxSpawn("");
         if(getDisplayname() == null) setDisplayname("");
         if (GunGame.getInstance().getArenaHandler().existArenaByName(getName())) {
-            GunGame.getInstance().getMySQL().update("UPDATE gg_arena SET " +
+            GunGame.getInstance().getDatabaseHandler().update("UPDATE gg_arena SET " +
                     "DISPLAYNAME='" +getDisplayname() +"', SPAWN='" + getSpawn()+ "',"+
                     "MAXSPAWN='" + getMaxSpawn()+"', MINSPAWN='" + getMinSpawn()+"',"+
                     "TEAMSTATE='" +getArenaTeamState().toString()+ "', FINISHED='" + getFinished() +"' WHERE NAME='" + getName()+"';");
             GunGame.getInstance().getArenaHandler().loadArenas();
         } else {
-            GunGame.getInstance().getMySQL().update("INSERT INTO gg_arena VALUES('" +getName() +"', '" + getDisplayname()+"','" +
+            GunGame.getInstance().getDatabaseHandler().update("INSERT INTO gg_arena VALUES('" +getName() +"', '" + getDisplayname()+"','" +
                    getSpawn() +"', '" +getMaxSpawn() +"', '" + getMinSpawn() +"', '" + getArenaTeamState().toString()+"', '1');");
             GunGame.getInstance().getArenaHandler().loadArenas();
         }
@@ -57,7 +57,7 @@ public class Arena {
         GunGame.getInstance().getLocationHandler().getLocByName(getMinSpawn()).delete();
         GunGame.getInstance().getLocationHandler().getLocByName(getMaxSpawn()).delete();
 
-        GunGame.getInstance().getMySQL().update("DELETE FROM gg_arena WHERE NAME='" + getName() +"';");
+        GunGame.getInstance().getDatabaseHandler().update("DELETE FROM gg_arena WHERE NAME='" + getName() +"';");
 
 
         if(GunGame.getInstance().getGameHandler().getCurrent().getName().equalsIgnoreCase(getName())){

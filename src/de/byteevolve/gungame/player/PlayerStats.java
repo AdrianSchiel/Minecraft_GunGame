@@ -23,9 +23,7 @@ public class PlayerStats {
 
     private boolean exists() {
         try {
-            GunGame gunGame = GunGame.getInstance();
-            MySQL mySQL = gunGame.getMySQL();
-            ResultSet resultSet = mySQL.getResult("SELECT * FROM gg_stats WHERE gg_stats.UUID='" + getUUID() +"';");
+            ResultSet resultSet = GunGame.getInstance().getDatabaseHandler().getResult("SELECT * FROM gg_stats WHERE gg_stats.UUID='" + getUUID() +"';");
             if (resultSet.next()) return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -35,9 +33,7 @@ public class PlayerStats {
 
     private void create() {
         if(!exists()) {
-                GunGame gunGame = GunGame.getInstance();
-                MySQL mySQL = gunGame.getMySQL();
-                mySQL.update("INSERT INTO gg_stats VALUES('" +getUUID() +"', '"+ getName() +"',"
+            GunGame.getInstance().getDatabaseHandler().update("INSERT INTO gg_stats VALUES('" +getUUID() +"', '"+ getName() +"',"
                         + "'0', '0', '0', '0');");
         }
     }
@@ -53,9 +49,7 @@ public class PlayerStats {
     public Integer get(PlayerStatsType type) {
 
         try {
-            GunGame gunGame = GunGame.getInstance();
-            MySQL mySQL = gunGame.getMySQL();
-            ResultSet resultSet = mySQL.getResult("SELECT " +type.toString() +" FROM gg_stats WHERE gg_stats.UUID='" + getUUID() +"';");
+            ResultSet resultSet = GunGame.getInstance().getDatabaseHandler().getResult("SELECT " +type.toString() +" FROM gg_stats WHERE gg_stats.UUID='" + getUUID() +"';");
             if(resultSet.next()) return resultSet.getInt(type.toString());
         } catch (SQLException e) {
             e.printStackTrace();
@@ -74,9 +68,7 @@ public class PlayerStats {
 
     public void set(PlayerStatsType type, int value) {
         if(exists()) {
-                GunGame gunGame = GunGame.getInstance();
-                MySQL mySQL = gunGame.getMySQL();
-                mySQL.update("UPDATE gg_stats SET " + type.toString() + "='" + value+ "' WHERE UUID='" + getUUID() + "';");
+            GunGame.getInstance().getDatabaseHandler().update("UPDATE gg_stats SET " + type.toString() + "='" + value+ "' WHERE UUID='" + getUUID() + "';");
         }else create();
     }
 
@@ -91,7 +83,7 @@ public class PlayerStats {
     public Integer getRank() {
         HashMap<Integer, String> rang = new HashMap<>();
         try {
-            ResultSet rs = GunGame.getInstance().getMySQL().getResult("SELECT UUID FROM gg_stats ORDER BY POINTS DESC LIMIT 1000");
+            ResultSet rs = GunGame.getInstance().getDatabaseHandler().getResult("SELECT UUID FROM gg_stats ORDER BY POINTS DESC LIMIT 1000");
             int in = 0;
             try {
                 while (rs.next()) {

@@ -19,8 +19,8 @@ public class Loc {
     }
 
     private void save() {
-        GunGame.getInstance().getMySQL().update("INSERT INTO gg_locs VALUES " +
-                "(NULL, '" +getName()+"', '" +getX()+"', '"+ getY() +"', '" +getZ()+"', '"
+        GunGame.getInstance().getDatabaseHandler().update("INSERT INTO gg_locs VALUES " +
+                "('" +getName()+"', '" +getX()+"', '"+ getY() +"', '" +getZ()+"', '"
                 +getYaw() +"', '" +getPitch()+ "', '" +getWorld() + "')");
     }
 
@@ -35,7 +35,7 @@ public class Loc {
 
     public boolean delete(){
         if (GunGame.getInstance().getLocationHandler().existByName(this.name)) {
-            GunGame.getInstance().getMySQL().update("DELETE FROM gg_locs WHERE NAME='" +getName()+ "';");
+            GunGame.getInstance().getDatabaseHandler().update("DELETE FROM gg_locs WHERE NAME='" +getName()+ "';");
             GunGame.getInstance().getLocationHandler().loadLocs();
             return true;
         }
@@ -44,13 +44,13 @@ public class Loc {
 
     public void update() {
         if (GunGame.getInstance().getLocationHandler().existByName(this.name)) {
-            GunGame.getInstance().getMySQL().update("UPDATE gg_locs SET gg_locs.NAME='" + getName() + "'," +
+            GunGame.getInstance().getDatabaseHandler().update("UPDATE gg_locs SET gg_locs.NAME='" + getName() + "'," +
                     "gg_locs.Y='" +getY()+"', gg_locs.Z='" + getZ()+ "', gg_locs.YAW='" + getYaw()+ "'," +
                     "gg_locs.PITCH='" +getPitch()+ "', gg_locs.WORLD='" +getWorld()+ "' WHERE gg_locs.NAME='" +getName() +"';");
             GunGame.getInstance().getLocationHandler().loadLocs();
         } else {
-            GunGame.getInstance().getMySQL().update("INSERT INTO gg_locs VALUES " +
-                    "(NULL, '" +getName()+"', '" +getX()+"', '"+ getY() +"', '" +getZ()+"', '"
+            GunGame.getInstance().getDatabaseHandler().update("INSERT INTO gg_locs(NAME,X,Y,Z,YAW,PITCH,WORLD) VALUES " +
+                    "('" +getName()+"', '" +getX()+"', '"+ getY() +"', '" +getZ()+"', '"
                     +getYaw() +"', '" +getPitch()+ "', '" +getWorld() + "')");
 
             GunGame.getInstance().getLocationHandler().loadLocs();

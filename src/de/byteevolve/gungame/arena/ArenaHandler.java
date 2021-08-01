@@ -47,7 +47,7 @@ public class ArenaHandler {
      */
     public boolean loadArenas() {
         this.arenas.clear();
-        ResultSet resultSet = GunGame.getInstance().getMySQL().getResult("SELECT * FROM gg_arena;");
+        ResultSet resultSet = GunGame.getInstance().getDatabaseHandler().getResult("SELECT * FROM gg_arena;");
         try {
             while (resultSet.next()) {
                 Arena arena = new Arena(resultSet.getString("NAME"));

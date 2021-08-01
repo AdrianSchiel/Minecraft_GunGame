@@ -41,7 +41,7 @@ public class LocationHandler {
 
     public boolean loadLocs(){
         getLocations().clear();
-        ResultSet resultSet = GunGame.getInstance().getMySQL().getResult("SELECT * FROM gg_locs;");
+        ResultSet resultSet = GunGame.getInstance().getDatabaseHandler().getResult("SELECT * FROM gg_locs;");
         try {
             while (resultSet.next()) {
                 Loc temp = new Loc(resultSet.getString("NAME"));
