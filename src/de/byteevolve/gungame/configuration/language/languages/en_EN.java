@@ -52,7 +52,7 @@ public enum en_EN implements Language {
     TEAMNOPERMTOKICK( "teamnopermtokick", "&cYou do not have the permission to kick others from the team.", "&cYou do not have the permission to kick others from the team."),
     TEAMKICKHELP( "teamkickhelp", "&cPlease use /team kick <player>", "&cPlease use /team kick <player>"),
     TEAMHELP( "teamhelp", "&aTeam system information \n&a/team invite &7<&aplayer&7> &7Invites a player to the team. \n&a/team accept &7Accepts a request \n&a/team deny &7Rejects a request \n&a/team info &7Show all members of your team \n&a/team leave &7Leaves the team \n&a/team kick &7<&aplayer&7> Kicks a player from the team",
-            "&aTeam system information \\n&a/team invite &7<&aplayer&7> &7Invites a player to the team. \\n&a/team accept &7Accepts a request \\n&a/team deny &7Rejects a request \\n&a/team info &7Show all members of your team \\n&a/team leave &7Leaves the team \\n&a/team kick &7<&aplayer&7> Kicks a player from the team\",\n"),
+            "&aTeam system information \n&a/team invite &7<&aplayer&7> &7Invites a player to the team. \n&a/team accept &7Accepts a request \n&a/team deny &7Rejects a request \n&a/team info &7Show all members of your team \n&a/team leave &7Leaves the team \n&a/team kick &7<&aplayer&7> Kicks a player from the team"),
 
     //TEAMSTATES
     TEAMSTATEALLOWED( "allowed", "&aTeams allowed", "&aTeams allowed"),
