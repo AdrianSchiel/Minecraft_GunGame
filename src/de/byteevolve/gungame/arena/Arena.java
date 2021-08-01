@@ -1,7 +1,12 @@
 package de.byteevolve.gungame.arena;
 
 import de.byteevolve.gungame.GunGame;
+import de.byteevolve.gungame.configuration.language.Message;
+import de.byteevolve.gungame.game.GameHandler;
+import de.byteevolve.gungame.kit.Kit;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.entity.Player;
 
 /**
  * Arena dient zum erstellen eigener Maps für das Gungame System.
@@ -45,6 +50,38 @@ public class Arena {
                    getSpawn() +"', '" +getMaxSpawn() +"', '" + getMinSpawn() +"', '" + getArenaTeamState().toString()+"', '1');");
             GunGame.getInstance().getArenaHandler().loadArenas();
         }
+    }
+
+    public void delete(){
+        GunGame.getInstance().getLocationHandler().getLocByName(getSpawn()).delete();
+        GunGame.getInstance().getLocationHandler().getLocByName(getMinSpawn()).delete();
+        GunGame.getInstance().getLocationHandler().getLocByName(getMaxSpawn()).delete();
+
+        GunGame.getInstance().getMySQL().update("DELETE FROM gg_arena WHERE NAME='" + getName() +"';");
+
+
+        if(GunGame.getInstance().getGameHandler().getCurrent().getName().equalsIgnoreCase(getName())){
+            GunGame.getInstance().getArenaHandler().loadArenas();
+            if(!GunGame.getInstance().getArenaHandler().getArenas().isEmpty()){
+                GunGame.getInstance().getGameHandler().setCurrent(GunGame.getInstance().getArenaHandler().getArenas().get(0));
+            }else GunGame.getInstance().getGameHandler().setCurrent(null);
+
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                if (GunGame.getInstance().getGameHandler().getCurrent() != null) {
+                    player.teleport(GunGame.getInstance().getLocationHandler().getLocByName(GunGame.getInstance().getGameHandler().getCurrent().getSpawn()).getAsLocation());
+                } else {
+                    player.sendMessage(GunGame.getInstance().getPrefix() + Message.NOARENAEXISTS.getAsString());
+                }
+                GunGame.getInstance().getGameHandler().getPlayerkits().put(player, Kit.LEVEL_0);
+                GunGame.getInstance().getGameHandler().getPlayerkits().get(player).getKitInventory().load(player);
+
+                GunGame.getInstance().setGameHandler(new GameHandler());
+            }
+        }else{
+            GunGame.getInstance().getArenaHandler().loadArenas();
+
+        }
+
     }
 
     /**
@@ -172,7 +209,7 @@ public class Arena {
      * @return Anzeigename
      */
     public String getDisplayname() {
-        return displayname;
+        return displayname.replaceAll("&", "§");
     }
 
     /**
