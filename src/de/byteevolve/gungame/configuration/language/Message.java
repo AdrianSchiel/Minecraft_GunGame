@@ -15,6 +15,8 @@ public enum Message {
     PLAYERNOTCREATESARENA( "playernotcreatesarena", "&7Du erstellst gerade keine Arena. (&2/arena create Name&7)", "&7Du erstellst gerade keine Arena. (&2/arena create Name&7)"),
     ARENAHELP( "arenahelp", "&7Nutze &c/arena &7<&ccreate&7,&cedit&7> &7<&cName&7> &7<&cDisplayname&7>", "&7Nutze &c/arena &7<&ccreate&7,&cedit&7> &7<&cName&7> &7<&cDisplayname&7>"),
     NOARENAEXISTS( "noarenaexists","&cEs wurde noch keine Arena erstellt.", "&cEs wurde noch keine Arena erstellt."),
+    ARENADELETE("arenadelete", "&cDu hast die Arena &a%ARENA% &cgelöscht.", "&cDu hast die Arena &a%ARENA% &cgelöscht."),
+
 
     //BUILD COMMAND
     BUILDON( "buildon", "&7Du bist nun im &aBuild-Modus&7.","&7Du bist nun im &aBuild-Modus&7."),

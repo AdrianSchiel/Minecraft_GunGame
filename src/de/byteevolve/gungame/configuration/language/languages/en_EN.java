@@ -16,7 +16,7 @@ public enum en_EN implements Language {
     PLAYERNOTCREATESARENA( "playernotcreatesarena", "&7You are not creating an arena currently. (&2/arena create name&7)", "&7You are not creating an arena currently. (&2/arena create name&7)"),
     ARENAHELP( "arenahelp", "&7Use &c/arena &7<&ccreate&7,&cedit&7> &7<&cName&7> &7<&cDisplayname&7>", "&7Use &c/arena &7<&ccreate&7,&cedit&7> &7<&cName&7> &7<&cDisplayname&7>"),
     NOARENAEXISTS( "noarenaexists","&cNo arena has been created yet.", "&cNo arena has been created yet."),
-
+    ARENADELETE("arenadelete", "&cYou deleted the Arena &a%ARENA%&c.", "&&cYou deleted the Arena &a%ARENA%&c."),
     //BUILD COMMAND
     BUILDON( "buildon", "&7You are now in &aBuild mode&7.","&7You are now in &aBuild mode&7."),
     BUILDOFF( "buildoff", "&7You are &cno &7longer in &aBuild mode&7.","&7You are &cno &7longer in &aBuild mode&7."),
