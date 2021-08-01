@@ -16,6 +16,7 @@ public enum ConfigEntries implements ConfigEntry {
     ANTICROPTRAMPLE(ConfigSections.SETTINGS, "anticroptrample", true, true, "Einstellung um kein Pflanzen zu zertramplen"),
     SCOREBOARD(ConfigSections.SETTINGS, "scoreboard", true, true, "Setting if Scoreboard is enabled."),
 
+    DATABASE(ConfigSections.SETTINGS, "database", "mysql", "mysql", "Which Database Type: \n mysql\n sqlite"),
 
     //MYSQL
     MYSQL_HOST(ConfigSections.MYSQL, "host", "localhost", "localhost", "Hostname deiner MySQl Datenbank"),
