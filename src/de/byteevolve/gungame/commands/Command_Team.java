@@ -30,7 +30,6 @@ public class Command_Team implements CommandExecutor {
             Player player = (Player) sender;
             if(args.length == 0){
                 for(String line : Message.TEAMHELP.getAsString().split("\n")){
-                    line = line.replaceAll("\n", "");
                     player.sendMessage(GunGame.getInstance().getPrefix() + line);
                 }
                 return true;
