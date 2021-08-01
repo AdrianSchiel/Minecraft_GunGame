@@ -36,6 +36,7 @@ public class Loc {
     public boolean delete(){
         if (GunGame.getInstance().getLocationHandler().existByName(this.name)) {
             GunGame.getInstance().getMySQL().update("DELETE FROM gg_locs WHERE NAME='" +getName()+ "';");
+            GunGame.getInstance().getLocationHandler().loadLocs();
             return true;
         }
         return false;
