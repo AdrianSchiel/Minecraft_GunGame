@@ -29,13 +29,10 @@ public class Command_Team implements CommandExecutor {
             }
             Player player = (Player) sender;
             if(args.length == 0){
-                player.sendMessage(GunGame.getInstance().getPrefix() + "§aInformationen zum Teamsystem");
-                player.sendMessage(GunGame.getInstance().getPrefix() + "§a/team invite §7<§aSpieler§7> §7Lädt einen Spieler in das Team ein");
-                player.sendMessage(GunGame.getInstance().getPrefix() + "§a/team accept §7Nimmt eine Anfrage an");
-                player.sendMessage(GunGame.getInstance().getPrefix() + "§a/team deny §7Lehnt eine Anfrage ab");
-                player.sendMessage(GunGame.getInstance().getPrefix() + "§a/team info §7Zeigt alle Mitglieder deines Teams an");
-                player.sendMessage(GunGame.getInstance().getPrefix() + "§a/team leave §7Verlässt das Team");
-                player.sendMessage(GunGame.getInstance().getPrefix() + "§a/team kick §7<§aSpieler§7> Kickt einen Spieler aus dem Team");
+                for(String line : Message.TEAMHELP.getAsString().split("\n")){
+                    line = line.replaceAll("\n", "");
+                    player.sendMessage(GunGame.getInstance().getPrefix() + line);
+                }
                 return true;
             }
 
