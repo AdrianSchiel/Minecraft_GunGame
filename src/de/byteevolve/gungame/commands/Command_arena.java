@@ -60,10 +60,15 @@ public class Command_arena implements CommandExecutor {
                         player.sendMessage(GunGame.getInstance().getPrefix() + Message.ARENANOTEXISTS.getAsString().replaceAll("%ARENANAME%", args[1]));
                     break;
                 case "delete":
+                    if (GunGame.getInstance().getArenaHandler().existArenaByName(args[1])) {
+                        Arena arena = GunGame.getInstance().getArenaHandler().getArenaByName(args[1]);
+                        arena.delete();
+                        player.sendMessage(GunGame.getInstance().getPrefix() + Message.ARENADELETE.getAsString().replaceAll("%ARENA%", arena.getDisplayname()));
+
+                    }else player.sendMessage(GunGame.getInstance().getPrefix() + Message.ARENANOTEXISTS.getAsString().replaceAll("%ARENANAME%", args[1]));
                     break;
             }
-        }
-        if(args.length == 1){
+        }else if(args.length == 1){
             if(args[0].equalsIgnoreCase("edit")){
             if(GunGame.getInstance().getArenaHandler().getArenaPlayerCreate().containsKey(player))
                 new PlayerHandler(player).openArenaEditMainInv(GunGame.getInstance().getArenaHandler().getArenaPlayerCreate().get(player));
