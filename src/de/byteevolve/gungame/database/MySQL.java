@@ -35,8 +35,8 @@ public class MySQL {
     private Connection connection;
 
     private void createTables() {
-        update("CREATE TABLE IF NOT EXISTS `gg_locs` (`LID` int(11) NOT NULL AUTO_INCREMENT,`NAME` text NOT NULL,`X` double NOT NULL,`Y` double NOT NULL," +
-                "  `Z` double NOT NULL,`YAW` float NOT NULL, `PITCH` float NOT NULL,`WORLD` text NOT NULL, PRIMARY KEY (LID));");
+        update("CREATE TABLE IF NOT EXISTS `gg_locs` (`NAME` text NOT NULL,`X` double NOT NULL,`Y` double NOT NULL," +
+                "  `Z` double NOT NULL,`YAW` float NOT NULL, `PITCH` float NOT NULL,`WORLD` text NOT NULL);");
         update("CREATE TABLE IF NOT EXISTS `gg_stats` (`UUID` text NOT NULL,`NAME` text NOT NULL,`KILLS` int(11) NOT NULL," +
                 "`DEATHS` int(11) NOT NULL,`HIGHSCORE` int(11) NOT NULL, `POINTS` int(11) NOT NULL);");
         update("CREATE TABLE IF NOT EXISTS `gg_arena` ( `NAME` TEXT NOT NULL , `DISPLAYNAME` TEXT NOT NULL , `SPAWN` TEXT NOT NULL ," +
