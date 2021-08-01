@@ -10,7 +10,9 @@ import de.byteevolve.gungame.configuration.ConfigHandler;
 import de.byteevolve.gungame.configuration.config.ConfigEntries;
 import de.byteevolve.gungame.configuration.language.LanguageHandler;
 import de.byteevolve.gungame.configuration.language.Message;
+import de.byteevolve.gungame.database.DatabaseHandler;
 import de.byteevolve.gungame.database.MySQL;
+import de.byteevolve.gungame.database.SQLite;
 import de.byteevolve.gungame.game.GameHandler;
 import de.byteevolve.gungame.itembuilder.unbreakable.*;
 import de.byteevolve.gungame.kit.Kit;
@@ -34,7 +36,6 @@ import java.util.UUID;
 public class GunGame extends JavaPlugin {
 
     private static GunGame instance;
-    private MySQL mySQL;
     private GameHandler gameHandler;
     private LocationHandler locationHandler;
     private ArenaHandler arenaHandler;
@@ -47,6 +48,7 @@ public class GunGame extends JavaPlugin {
     private GGActionbar actionbar;
     private GGScoreboard scoreboard;
     private Unbreakable unbreakable;
+    private DatabaseHandler databaseHandler;
 
 
     @Override
@@ -54,20 +56,17 @@ public class GunGame extends JavaPlugin {
         instance = this;
         new Metrics(this, 11293);
         this.configHandler = new ConfigHandler();
+        this.databaseHandler = new DatabaseHandler();
         this.languageHandler = new LanguageHandler();
         this.prefix = Message.PREFIX.getAsString();
         this.noPerm = this.prefix + Message.NOPERM.getAsString();
         this.mustAPlayer = this.prefix + Message.MUSTAPLAYER.getAsString();
         this.playerNotOnline = this.prefix + Message.PLAYERNOTONLINE.getAsString();
-        this.mySQL = new MySQL(ConfigEntries.MYSQL_HOST.getAsString(), ConfigEntries.MYSQL_USERNAME.getAsString(),
-                ConfigEntries.MYSQL_PASSWORD.getAsString(), ConfigEntries.MYSQL_DATABASE.getAsString(),
-                ConfigEntries.MYSQL_PORT.getAsInt());
-        if(this.mySQL.isConnected()) {
-            this.locationHandler = new LocationHandler();
-            this.arenaHandler = new ArenaHandler();
-            this.gameHandler = new GameHandler();
-            this.teamHandler = new TeamHandler();
-            this.build = new ArrayList<>();
+        this.locationHandler = new LocationHandler();
+        this.arenaHandler = new ArenaHandler();
+        this.gameHandler = new GameHandler();
+        this.teamHandler = new TeamHandler();
+        this.build = new ArrayList<>();
 
             this.loadVersions();
 
@@ -110,7 +109,7 @@ public class GunGame extends JavaPlugin {
                 GunGame.getInstance().getGameHandler().getPlayerkits().put(player, Kit.LEVEL_0);
                 GunGame.getInstance().getGameHandler().getPlayerkits().get(player).getKitInventory().load(player);
             }
-        }
+
     }
 
     private void loadVersions(){
@@ -181,9 +180,7 @@ public class GunGame extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        if(this.mySQL != null) {
-            if (this.mySQL.isConnected()) this.mySQL.close();
-        }
+       this.databaseHandler.close();
     }
 
     public void setGameHandler(GameHandler gameHandler) {
@@ -222,8 +219,8 @@ public class GunGame extends JavaPlugin {
         return arenaHandler;
     }
 
-    public MySQL getMySQL() {
-        return mySQL;
+    public DatabaseHandler getDatabaseHandler() {
+        return databaseHandler;
     }
 
     public LocationHandler getLocationHandler() {
