@@ -186,6 +186,10 @@ public class GunGame extends JavaPlugin {
         }
     }
 
+    public void setGameHandler(GameHandler gameHandler) {
+        this.gameHandler = gameHandler;
+    }
+
     public GGRespawn getRespawn() {
         return respawn;
     }
