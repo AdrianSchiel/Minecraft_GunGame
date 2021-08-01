@@ -22,6 +22,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
@@ -32,6 +33,20 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 public class Listener_Game implements Listener {
+
+    @EventHandler
+    public void onClick(InventoryClickEvent event){
+        try {
+            Player player = (Player) event.getWhoClicked();
+            if(event.getClickedInventory().equals(player.getInventory())){
+                if (event.getSlot() == 36 || event.getSlot() == 37 || event.getSlot() == 38 || event.getSlot() == 39) {
+                    event.setCancelled(true);
+                }
+            }
+        }catch (Exception e){
+
+        }
+    }
 
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent event){
