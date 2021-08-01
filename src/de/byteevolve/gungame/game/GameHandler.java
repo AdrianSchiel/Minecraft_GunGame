@@ -51,6 +51,7 @@ public class GameHandler {
         this.current = current;
     }
 
+
     public void startGameTimer() {
             new BukkitRunnable() {
                 int i = ConfigEntries.MAPCHANGECOUNTER.getAsInt() * 60;
@@ -58,6 +59,11 @@ public class GameHandler {
 
                 @Override
                 public void run() {
+
+                    if(GunGame.getInstance().getArenaHandler().getArenas().isEmpty()){
+                        cancel();
+                        return;
+                    }
 
                     if (GunGame.getInstance().getArenaHandler().getArenas().size() > 1) {
                         String actionbar = Message.GAMEACTIONBARMAPCHANGE.getAsString();
@@ -125,4 +131,5 @@ public class GameHandler {
                 }
             }.runTaskTimer(GunGame.getInstance(), 0, 20);
     }
+
 }
