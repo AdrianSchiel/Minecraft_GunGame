@@ -4,6 +4,7 @@ import de.byteevolve.gungame.GunGame;
 import de.byteevolve.gungame.arena.Arena;
 import de.byteevolve.gungame.arena.ArenaState;
 import de.byteevolve.gungame.arena.ArenaTeamState;
+import de.byteevolve.gungame.configuration.config.ConfigEntries;
 import de.byteevolve.gungame.itembuilder.ItemBuilder;
 import de.byteevolve.gungame.player.actionbar.*;
 import de.byteevolve.gungame.player.respawn.*;
@@ -35,7 +36,9 @@ public class  PlayerHandler {
     }
 
     public void sendScoreBoard() {
-        GunGame.getInstance().getScoreboard().sendScoreboard(this.player);
+        if(ConfigEntries.SCOREBOARD.is()) {
+            GunGame.getInstance().getScoreboard().sendScoreboard(this.player);
+        }
     }
 
 

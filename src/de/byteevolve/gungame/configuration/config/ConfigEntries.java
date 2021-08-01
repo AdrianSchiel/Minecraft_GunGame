@@ -5,17 +5,17 @@ import de.byteevolve.gungame.configuration.ConfigEntry;
 public enum ConfigEntries implements ConfigEntry {
 
       //TEMAS COMMAND
-   TEAMSIZE(ConfigSections.SETTINGS, "teamsize", 2, 2, "Team Größe ohne Inhaber"),
+    TEAMSIZE(ConfigSections.SETTINGS, "teamsize", 2, 2, "Team Größe ohne Inhaber"),
 
-
-
-  MAPCHANGECOUNTER(ConfigSections.SETTINGS, "mapchangecounter", 30, 30,"Zeit wie lange eine Map in Minuten da ist, bis sie gewächselt wird"),
+    MAPCHANGECOUNTER(ConfigSections.SETTINGS, "mapchangecounter", 30, 30,"Zeit wie lange eine Map in Minuten da ist, bis sie gewächselt wird"),
 
     //LANGUAGE
     LANGUAGE(ConfigSections.SETTINGS, "language", "de_DE", "de_DE", "possible languages: \n de_DE \n en_EN"),
 
     //SETTINGS
     ANTICROPTRAMPLE(ConfigSections.SETTINGS, "anticroptrample", true, true, "Einstellung um kein Pflanzen zu zertramplen"),
+    SCOREBOARD(ConfigSections.SETTINGS, "scoreboard", true, true, "Setting if Scoreboard is enabled."),
+
 
     //MYSQL
     MYSQL_HOST(ConfigSections.MYSQL, "host", "localhost", "localhost", "Hostname deiner MySQl Datenbank"),
@@ -35,6 +35,10 @@ public enum ConfigEntries implements ConfigEntry {
         this.value = value;
         this.defaultValue = defaultValue;
         this.desc = desc;
+    }
+
+    public boolean is(){
+        return (boolean) getValue();
     }
 
     public int getAsInt(){
