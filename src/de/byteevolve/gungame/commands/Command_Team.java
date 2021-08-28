@@ -36,6 +36,29 @@ public class Command_Team implements CommandExecutor {
             }
 
             switch (args[0].toLowerCase()){
+                case "msg":
+                    if (GunGame.getInstance().getTeamHandler().inTeam(player.getUniqueId().toString()) != null) {
+                        Team team = GunGame.getInstance().getTeamHandler().inTeam(player.getUniqueId().toString());
+                        if(args.length >= 2){
+                            String msg = "";
+                            for (int i = 1; i < args.length; i++) {
+                                msg = msg + args[i] + " ";
+                            }
+                            Bukkit.getPlayer(UUID.fromString(team.getOwner())).sendMessage(GunGame.getInstance().getPrefix() + Message.TEAMMSG.getAsString().replaceAll("%MSG%", msg.replaceAll("&" , "§")));
+                            for(String member : team.getMembers()) {
+                                Player target = Bukkit.getPlayer(UUID.fromString(member));
+                                target.sendMessage(GunGame.getInstance().getPrefix() + Message.TEAMMSG.getAsString().replaceAll("%MSG%", msg.replaceAll("&" , "§")));
+                            }
+                        }else{
+                            for(String line : Message.TEAMHELP.getAsString().split("\n")){
+                                player.sendMessage(GunGame.getInstance().getPrefix() + line);
+                            }
+                        }
+                    }else{
+                        player.sendMessage(GunGame.getInstance().getPrefix() + Message.PLAYERNOTEAM.getAsString());
+                    }
+
+                    break;
                 case "invite":
                     if(args.length == 2) {
                         if (GunGame.getInstance().getTeamHandler().inTeam(player.getUniqueId().toString()) != null) {

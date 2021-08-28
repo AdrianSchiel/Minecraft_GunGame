@@ -51,9 +51,9 @@ public enum en_EN implements Language {
     TEAMPLAYERNOTATTEAM( "teamplayernotatteam", "&cThe player %PLAYER% is not in your team.", "&cThe player %PLAYER% is not in your team."),
     TEAMNOPERMTOKICK( "teamnopermtokick", "&cYou do not have the permission to kick others from the team.", "&cYou do not have the permission to kick others from the team."),
     TEAMKICKHELP( "teamkickhelp", "&cPlease use /team kick <player>", "&cPlease use /team kick <player>"),
-    TEAMHELP( "teamhelp", "&aTeam system information \n&a/team invite &7<&aplayer&7> &7Invites a player to the team. \n&a/team accept &7Accepts a request \n&a/team deny &7Rejects a request \n&a/team info &7Show all members of your team \n&a/team leave &7Leaves the team \n&a/team kick &7<&aplayer&7> Kicks a player from the team",
-            "&aTeam system information \n&a/team invite &7<&aplayer&7> &7Invites a player to the team. \n&a/team accept &7Accepts a request \n&a/team deny &7Rejects a request \n&a/team info &7Show all members of your team \n&a/team leave &7Leaves the team \n&a/team kick &7<&aplayer&7> Kicks a player from the team"),
-
+    TEAMHELP( "teamhelp", "&aTeam system information \n &a/team msg &7<MSG&7> &7Message to the Team\n&a/team invite &7<&aplayer&7> &7Invites a player to the team. \n&a/team accept &7Accepts a request \n&a/team deny &7Rejects a request \n&a/team info &7Show all members of your team \n&a/team leave &7Leaves the team \n&a/team kick &7<&aplayer&7> Kicks a player from the team",
+            "&aTeam system information \n&a/team invite &7<&aplayer&7> &7Invites a player to the team.\n &a/team msg &7<MSG&7> &7Message to the Team \n&a/team accept &7Accepts a request \n&a/team deny &7Rejects a request \n&a/team info &7Show all members of your team \n&a/team leave &7Leaves the team \n&a/team kick &7<&aplayer&7> Kicks a player from the team"),
+    TEAMMSG("teammsg", "&7[&aTEAM&7] »&7 %MSG%", "&7[&aTEAM&7] »&7 %MSG%"),
     //TEAMSTATES
     TEAMSTATEALLOWED( "allowed", "&aTeams allowed", "&aTeams allowed"),
     TEAMSTATEDISALLOWED( "disallowed", "&cTeams disallowed", "&cTeams disallowed"),
