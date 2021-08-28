@@ -97,7 +97,7 @@ public class Listener_Game implements Listener {
     @EventHandler
     public void onMove(PlayerMoveEvent event) {
         Material material = event.getPlayer().getLocation().getBlock().getType();
-        if(material == Material.STATIONARY_WATER || material == Material.WATER) {
+        if(material == Material.STATIONARY_WATER || material == Material.WATER || material == Material.STATIONARY_LAVA || material == Material.LAVA) {
             event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.HARM, 20, 200));
         }
     }
