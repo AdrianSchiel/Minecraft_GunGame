@@ -13,9 +13,9 @@ public class Level_20 implements KitInventory {
         player.getInventory().clear();
         player.getInventory().setArmorContents(null);
         player.getInventory().setItem(0, new ItemBuilder(Material.GOLD_SWORD, 1).setUnbreakable(true).addEnchant(Enchantment.DAMAGE_ALL,1).build());
-        player.getInventory().setChestplate(new ItemBuilder(Material.GOLD_CHESTPLATE,1).setUnbreakable(true).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setName(" ").build());
-        player.getInventory().setLeggings(new ItemBuilder(Material.GOLD_LEGGINGS,1).setName(" ").setUnbreakable(true).build());
-        player.getInventory().setBoots(new ItemBuilder(Material.GOLD_BOOTS,1).setName(" ").setUnbreakable(true).build());
-        player.getInventory().setHelmet(new ItemBuilder(Material.GOLD_HELMET,1).setName(" ").setUnbreakable(true).build());
+        player.getInventory().setChestplate(new ItemBuilder(Material.GOLD_CHESTPLATE,1).setUnbreakable(true).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setName("§3§lLevel §b§l20").build());
+        player.getInventory().setLeggings(new ItemBuilder(Material.GOLD_LEGGINGS,1).setName("§3§lLevel §b§l20").setUnbreakable(true).build());
+        player.getInventory().setBoots(new ItemBuilder(Material.GOLD_BOOTS,1).setName("§3§lLevel §b§l20").setUnbreakable(true).build());
+        player.getInventory().setHelmet(new ItemBuilder(Material.GOLD_HELMET,1).setName("§3§lLevel §b§l20").setUnbreakable(true).build());
     }
 }

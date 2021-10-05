@@ -13,9 +13,9 @@ public class Level_25 implements KitInventory {
         player.getInventory().clear();
         player.getInventory().setArmorContents(null);
         player.getInventory().setItem(0, new ItemBuilder(Material.STONE_SWORD, 1).setUnbreakable(true).build());
-        player.getInventory().setChestplate(new ItemBuilder(Material.GOLD_CHESTPLATE,1).setUnbreakable(true).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setName(" ").build());
-        player.getInventory().setLeggings(new ItemBuilder(Material.GOLD_LEGGINGS,1).setUnbreakable(true).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setName(" ").build());
-        player.getInventory().setBoots(new ItemBuilder(Material.GOLD_BOOTS,1).setUnbreakable(true).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setName(" ").build());
-        player.getInventory().setHelmet(new ItemBuilder(Material.GOLD_HELMET,1).setUnbreakable(true).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setName(" ").build());
+        player.getInventory().setChestplate(new ItemBuilder(Material.GOLD_CHESTPLATE,1).setUnbreakable(true).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setName("§3§lLevel §b§l25").build());
+        player.getInventory().setLeggings(new ItemBuilder(Material.GOLD_LEGGINGS,1).setUnbreakable(true).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setName("§3§lLevel §b§l25").build());
+        player.getInventory().setBoots(new ItemBuilder(Material.GOLD_BOOTS,1).setUnbreakable(true).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setName("§3§lLevel §b§l25").build());
+        player.getInventory().setHelmet(new ItemBuilder(Material.GOLD_HELMET,1).setUnbreakable(true).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setName("§3§lLevel §b§l25").build());
     }
 }

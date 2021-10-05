@@ -108,8 +108,15 @@ public class Listener_Game implements Listener {
         event.setDeathMessage(null);
         event.getDrops().clear();
         event.setDroppedExp(0);
+
         if(event.getEntity().getKiller() != null){
             Player killer = event.getEntity().getKiller();
+            Arena arena = GunGame.getInstance().getGameHandler().getCurrent();
+            if(arena.atSpawn(killer.getLocation())){
+                killer.sendMessage(GunGame.getInstance().getPrefix() + Message.PLAYERKILLATSPAWN.getAsString());
+                return;
+            }
+
             Kit kitKiller = GunGame.getInstance().getGameHandler().getPlayerkits().get(killer);
             Kit newKitKiller = GunGame.getInstance().getGameHandler().getKitFromID(kitKiller.getId()+1);
             GunGame.getInstance().getGameHandler().getPlayerkits().put(killer, newKitKiller);

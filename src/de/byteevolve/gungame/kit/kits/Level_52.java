@@ -13,9 +13,9 @@ public class Level_52 implements KitInventory {
         player.getInventory().clear();
         player.getInventory().setArmorContents(null);
         player.getInventory().setItem(0, new ItemBuilder(Material.DIAMOND_SWORD, 1).setUnbreakable(true).build());
-        player.getInventory().setChestplate(new ItemBuilder(Material.DIAMOND_CHESTPLATE,1).setName(" ").setUnbreakable(true).build());
-        player.getInventory().setLeggings(new ItemBuilder(Material.IRON_LEGGINGS,1).setUnbreakable(true).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setName(" ").build());
-        player.getInventory().setBoots(new ItemBuilder(Material.DIAMOND_BOOTS,1).setName(" ").setUnbreakable(true).build());
-        player.getInventory().setHelmet(new ItemBuilder(Material.DIAMOND_HELMET,1).setName(" ").setUnbreakable(true).build());
+        player.getInventory().setChestplate(new ItemBuilder(Material.DIAMOND_CHESTPLATE,1).setName("§3§lLevel §b§l52").setUnbreakable(true).build());
+        player.getInventory().setLeggings(new ItemBuilder(Material.IRON_LEGGINGS,1).setUnbreakable(true).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setName("§3§lLevel §b§l52").build());
+        player.getInventory().setBoots(new ItemBuilder(Material.DIAMOND_BOOTS,1).setName("§3§lLevel §b§l52").setUnbreakable(true).build());
+        player.getInventory().setHelmet(new ItemBuilder(Material.DIAMOND_HELMET,1).setName("§3§lLevel §b§l52").setUnbreakable(true).build());
     }
 }

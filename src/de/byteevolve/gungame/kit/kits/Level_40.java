@@ -13,9 +13,9 @@ public class Level_40 implements KitInventory {
         player.getInventory().clear();
         player.getInventory().setArmorContents(null);
         player.getInventory().setItem(0, new ItemBuilder(Material.IRON_SWORD, 1).setUnbreakable(true).build());
-        player.getInventory().setChestplate(new ItemBuilder(Material.IRON_CHESTPLATE,1).setUnbreakable(true).setName(" ").build());
-        player.getInventory().setLeggings(new ItemBuilder(Material.CHAINMAIL_LEGGINGS,1).setUnbreakable(true).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setName(" ").build());
-        player.getInventory().setBoots(new ItemBuilder(Material.IRON_BOOTS,1).setName(" ").setUnbreakable(true).build());
-        player.getInventory().setHelmet(new ItemBuilder(Material.IRON_HELMET,1).setName(" ").setUnbreakable(true).build());
+        player.getInventory().setChestplate(new ItemBuilder(Material.IRON_CHESTPLATE,1).setUnbreakable(true).setName("§3§lLevel §b§l40").build());
+        player.getInventory().setLeggings(new ItemBuilder(Material.CHAINMAIL_LEGGINGS,1).setUnbreakable(true).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setName("§3§lLevel §b§l40").build());
+        player.getInventory().setBoots(new ItemBuilder(Material.IRON_BOOTS,1).setName("§3§lLevel §b§l40").setUnbreakable(true).build());
+        player.getInventory().setHelmet(new ItemBuilder(Material.IRON_HELMET,1).setName("§3§lLevel §b§l40").setUnbreakable(true).build());
     }
 }

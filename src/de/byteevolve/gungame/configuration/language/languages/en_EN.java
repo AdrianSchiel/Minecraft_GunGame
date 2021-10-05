@@ -68,6 +68,7 @@ public enum en_EN implements Language {
     PLAYERDEAD( "playerdead", "&7You died.", "&7You died."),
     PLAYERKILLED( "playerkilled", "&7You were killed by &c%KILLER%&7.", "&7You were killed by &c%KILLER%&7."),
     KILLERKILLS( "killerkills", "&7You killed&a %PLAYER% &7.", "&7You killed&a %PLAYER% &7."),
+    PLAYERKILLATSPAWN("playerkillatspawn", "&7You may not kill a player when you are at the spawn.", "&7You may not kill a player when you are at the spawn."),
 
     //MAPCHANGE
     MAPCHANGE( "mapchange", "&7The map was set to&a %MAP% &7.", "&7The map was set to&a %MAP% &7."),
