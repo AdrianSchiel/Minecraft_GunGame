@@ -15,9 +15,9 @@ public class Level_8 implements KitInventory {
         player.getInventory().clear();
         player.getInventory().setArmorContents(null);
         player.getInventory().setItem(0, new ItemBuilder(Material.WOOD_SWORD, 1).setUnbreakable(true).addEnchant(Enchantment.DAMAGE_ALL,1).build());
-        player.getInventory().setChestplate(new LeatherBuilder(Material.LEATHER_CHESTPLATE," ").setUnbreakable(true).setCount(1).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setColor(Color.TEAL).build());
-        player.getInventory().setLeggings(new LeatherBuilder(Material.LEATHER_LEGGINGS," ").setUnbreakable(true).setCount(1).setColor(Color.TEAL).build());
-        player.getInventory().setBoots(new LeatherBuilder(Material.LEATHER_BOOTS," ").setCount(1).setUnbreakable(true).setColor(Color.TEAL).build());
-        player.getInventory().setHelmet(new LeatherBuilder(Material.LEATHER_HELMET," ").setCount(1).setUnbreakable(true).setColor(Color.TEAL).build());
+        player.getInventory().setChestplate(new LeatherBuilder(Material.LEATHER_CHESTPLATE,"§3§lLevel §b§l8").setUnbreakable(true).setCount(1).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1).setColor(Color.TEAL).build());
+        player.getInventory().setLeggings(new LeatherBuilder(Material.LEATHER_LEGGINGS,"§3§lLevel §b§l8").setUnbreakable(true).setCount(1).setColor(Color.TEAL).build());
+        player.getInventory().setBoots(new LeatherBuilder(Material.LEATHER_BOOTS,"§3§lLevel §b§l8").setCount(1).setUnbreakable(true).setColor(Color.TEAL).build());
+        player.getInventory().setHelmet(new LeatherBuilder(Material.LEATHER_HELMET,"§3§lLevel §b§l8").setCount(1).setUnbreakable(true).setColor(Color.TEAL).build());
     }
 }

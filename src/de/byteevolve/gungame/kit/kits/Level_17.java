@@ -15,9 +15,9 @@ public class Level_17 implements KitInventory {
         player.getInventory().clear();
         player.getInventory().setArmorContents(null);
         player.getInventory().setItem(0, new ItemBuilder(Material.GOLD_SWORD, 1).setUnbreakable(true).build());
-        player.getInventory().setChestplate(new ItemBuilder(Material.GOLD_CHESTPLATE,1).setName(" ").setUnbreakable(true).build());
-        player.getInventory().setLeggings(new ItemBuilder(Material.GOLD_LEGGINGS,1).setName(" ").setUnbreakable(true).build());
-        player.getInventory().setBoots(new ItemBuilder(Material.GOLD_BOOTS,1).setName(" ").setUnbreakable(true).build());
-        player.getInventory().setHelmet(new ItemBuilder(Material.GOLD_HELMET,1).setName(" ").setUnbreakable(true).build());
+        player.getInventory().setChestplate(new ItemBuilder(Material.GOLD_CHESTPLATE,1).setName("§3§lLevel §b§l17").setUnbreakable(true).build());
+        player.getInventory().setLeggings(new ItemBuilder(Material.GOLD_LEGGINGS,1).setName("§3§lLevel §b§l17").setUnbreakable(true).build());
+        player.getInventory().setBoots(new ItemBuilder(Material.GOLD_BOOTS,1).setName("§3§lLevel §b§l17").setUnbreakable(true).build());
+        player.getInventory().setHelmet(new ItemBuilder(Material.GOLD_HELMET,1).setName("§3§lLevel §b§l17").setUnbreakable(true).build());
     }
 }

@@ -14,7 +14,7 @@ public class Level_3 implements KitInventory {
         player.getInventory().clear();
         player.getInventory().setArmorContents(null);
         player.getInventory().setItem(0, new ItemBuilder(Material.WOOD_SWORD, 1).setUnbreakable(true).build());
-        player.getInventory().setChestplate(new LeatherBuilder(Material.LEATHER_CHESTPLATE," ").setUnbreakable(true).setCount(1).setColor(Color.TEAL).build());
-        player.getInventory().setBoots(new LeatherBuilder(Material.LEATHER_BOOTS," ").setUnbreakable(true).setCount(1).setColor(Color.TEAL).build());
+        player.getInventory().setChestplate(new LeatherBuilder(Material.LEATHER_CHESTPLATE,"§3§lLevel §b§l3").setUnbreakable(true).setCount(1).setColor(Color.TEAL).build());
+        player.getInventory().setBoots(new LeatherBuilder(Material.LEATHER_BOOTS,"§3§lLevel §b§l3").setUnbreakable(true).setCount(1).setColor(Color.TEAL).build());
     }
 }
